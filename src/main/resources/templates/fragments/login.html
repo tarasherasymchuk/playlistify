@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/header.html :: header}">
+</head>
+<body>
+    <div id="auth" class="auth" th:fragment="login">
+        <div class="auth-card-alignment"></div>
+        <div class="auth-card">
+            <h2>Want to jump in and find some tunes that suite your mood? Sign in to Spotify!</h2>
+            <a th:href="@{/oauth2/authorization/spotify}">
+                <button class="button">Login with Spotify</button>
+            </a>
+        </div>
+        <div class="auth-card-alignment"></div>
+    </div>
+</body>
+</html>

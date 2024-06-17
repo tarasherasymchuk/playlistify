@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div id="main" th:fragment="main" th:if="${data?.authData?.authenticated}">
+        <div class="greeting-content">
+            <h1 th:if="${data['appData'] != null}">Hello <span th:text="${data['appData'].displayName}"></span></h1>
+            <p>This is a sample page that mimics Spotify's design style, using their signature dark theme and green highlights.</p>
+        </div>
+        <div class="cards">
+            <table>
+                <tbody>
+                <tr th:each="track : ${recommendations.tracks}">
+                    <td>
+                        <div class="card">
+                            <img class="album-cover" th:src="${track.album.getCover()}" alt="Album Cover">
+                            <div class="track-details">
+                                <div class="track-info">
+                                    <h3><a th:text="${track.name}" th:href="@{http://example.com/track}" target="_blank">Track Title</a></h3>
+                                    <p>
+                                        <a th:href="@{http://example.com/band1}" target="_blank">Band 1</a>,
+                                        <a th:href="@{http://example.com/band2}" target="_blank">Band 2</a>
+                                    </p>
+                                </div>
+                                <div class="audio-controls">
+                                    <button th:id="${track.id}" th:data-id="'play-pause-button-' + ${track.id}" class="play-pause-button" th:onclick="togglePlayPause([[${track.id}]]);">
+                                        &#9654; <!-- Play symbol -->
+                                    </button>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" th:data-id="'progress-bar-' + ${track.id}" th:id="${track.id}"></div>
+                                    </div>
+                                </div>
+                                <audio th:id="${track.id}" th:data-id="'audio-preview-' + ${track.id}" class="audio-preview">
+                                    <source th:id="audio-source" th:data-id="'audio-source-' + ${track.id}" th:if="${track.hasPreviewUrl()}" th:src="${track.previewUrl}" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

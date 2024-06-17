@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/header.html :: header}">
+</head>
+<body>
+    <div class="container">
+        <div th:replace="${data?.authData?.authenticated} ?
+            ~{fragments/main.html :: main} :
+            ~{fragments/login.html :: login}">
+        </div>
+    </div>
+    <footer>
+        © 2024 Playlistify
+    </footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: playlistify
+  security:
+    oauth2:
+      client:
+        registration:
+          spotify:
+            client-id: ${spotify.client-id}
+            client-secret: ${spotify.client-secret}
+            redirect-uri: ${spotify.redirect-uri}
+            authorization-grant-type: authorization_code
+            client-name: ${spotify.provider}
+            scope: ${spotify.scope}
+        provider:
+          spotify:
+            authorization-uri: ${spotify.authorization-uri}
+            token-uri: ${spotify.token-uri}
+            user-info-uri: ${spotify.user-info-uri}
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            mvc:
+              method:
+                annotation:
+                  ExceptionHandlerExceptionResolver: INFO
+
+spotify:
+  provider: Spotify
+  client-id: 76971144a78e415f8a53a6cc3c990495
+  client-secret: 46abb01ae6f6468381b4f5ff71335214
+  redirect-uri: http://localhost:8080/auth/callback
+  authorization-uri: https://accounts.spotify.com/authorize
+  token-uri: https://accounts.spotify.com/api/token
+  user-info-uri: https://api.spotify.com/v1/me
+  api-uri: https://api.spotify.com
+  scope: playlist-read-private,playlist-modify-public,user-top-read,user-read-recently-played,user-library-read,user-read-private
+
+app:
+  secret-key: ${APP_SECRET_KEY}
+  secret-salt: ${APP_SECRET_SALT}
