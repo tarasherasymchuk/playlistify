@@ -1,8 +1,7 @@
 package io.playlistify.user;
 
-import org.springframework.stereotype.Component;
-
 import io.playlistify.middleware.SpotifyMiddleware;
+import org.springframework.stereotype.Component;
 
 @Component
 public class UserService {

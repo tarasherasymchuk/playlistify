@@ -41,7 +41,10 @@ body {
 
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0px;
+    margin-bottom: 50px;
     padding: 20px 40px;
 }
 
@@ -84,7 +87,7 @@ body {
     border-radius: 8px;
     padding: 20px;
     margin: 10px;
-    width: calc(70% - 40px); /* Make the card 30% less wide */
+    width: 100%;
     box-sizing: border-box;
     transition: transform 0.3s ease;
     display: flex;
@@ -224,41 +227,40 @@ footer {
 }
 
 @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
+    .container {
+        padding: 10px;
+    }
 
-            .card {
-                width: calc(100% - 20px); /* Adjust for smaller screens */
-            }
+    .card {
+        width: calc(100% - 20px); /* Adjust for smaller screens */
+    }
 
-            .album-cover {
-                width: 60px; /* Adjust image size for smaller screens */
-                height: 60px;
-            }
-        }
+    .album-cover {
+        width: 60px; /* Adjust image size for smaller screens */
+        height: 60px;
+    }
+}
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 5px;
-            }
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
 
-            .login-button {
-                padding: 8px 16px;
-                font-size: 14px;
-            }
+    .login-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
 
-            .card {
-                flex-direction: column; /* Stack items vertically on small screens */
-                align-items: center;
-            }
+    .card {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center;
+    }
 
-            .album-cover {
-                margin-bottom: 10px;
-            }
+    .album-cover {
+        margin-bottom: 10px;
+    }
 
-            .track-info, .audio-controls {
-                text-align: center;
-            }
-        }
-
+    .track-info, .audio-controls {
+        text-align: center;
+    }
+}

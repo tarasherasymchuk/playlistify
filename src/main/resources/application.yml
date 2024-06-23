@@ -31,8 +31,8 @@ logging:
 
 spotify:
   provider: Spotify
-  client-id: 76971144a78e415f8a53a6cc3c990495
-  client-secret: 46abb01ae6f6468381b4f5ff71335214
+  client-id: ${SPOTIFY_CLIENT_ID}
+  client-secret: ${SPOTIFY_CLIENT_SECRET}
   redirect-uri: http://localhost:8080/auth/callback
   authorization-uri: https://accounts.spotify.com/authorize
   token-uri: https://accounts.spotify.com/api/token

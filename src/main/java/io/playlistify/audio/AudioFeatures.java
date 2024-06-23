@@ -74,7 +74,7 @@ public record AudioFeatures(@JsonProperty("audio_features") List<AudioFeature> i
   }
 
   Mood getMood() {
-    Mood mood;
+    final Mood mood;
     if (energy().avg() > 0.8 && danceability().avg() > 0.7) {
       mood = Mood.HIGH_ENERGY_DANCE; // Prioritize strong energy and dance cues
     } else if (energy().avg() > 0.8) {

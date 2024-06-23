@@ -15,10 +15,9 @@
                             <img class="album-cover" th:src="${track.album.getCover()}" alt="Album Cover">
                             <div class="track-details">
                                 <div class="track-info">
-                                    <h3><a th:text="${track.name}" th:href="@{http://example.com/track}" target="_blank">Track Title</a></h3>
-                                    <p>
-                                        <a th:href="@{http://example.com/band1}" target="_blank">Band 1</a>,
-                                        <a th:href="@{http://example.com/band2}" target="_blank">Band 2</a>
+                                    <h3><a th:text="${track.name}" th:href="${track.externalUrls.spotify}" target="_blank">Track Title</a></h3>
+                                    <p th:each="artist, stat : ${track.artists}">
+                                        <a th:text="${artist.name}" th:href="${artist.externalUrls.spotify}" target="_blank">Band Name</a><span th:if="${!stat.last}">, </span>
                                     </p>
                                 </div>
                                 <div class="audio-controls">

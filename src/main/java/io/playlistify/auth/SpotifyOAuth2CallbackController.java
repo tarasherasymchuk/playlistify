@@ -15,8 +15,7 @@ class SpotifyOAuth2CallbackController {
   private final CookieHandler cookieHandler;
 
   public SpotifyOAuth2CallbackController(
-      final SpotifyAuthService spotifyAuthService,
-      final CookieHandler cookieHandler) {
+      final SpotifyAuthService spotifyAuthService, final CookieHandler cookieHandler) {
     this.spotifyAuthService = spotifyAuthService;
     this.cookieHandler = cookieHandler;
   }
